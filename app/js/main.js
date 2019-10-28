@@ -14,30 +14,16 @@ let subhead = document.getElementsByClassName("chart-subhead"),
         }       
      }
 
-Highcharts.setOptions({
-    lang: {
-      thousandsSep: ','
-    }
-});
+     Highcharts.setOptions({
+        lang: {
+          thousandsSep: ''
+        }
+    });
 
 
-// checks for the chart ID and displays a backup image if the browser can't find it
-setTimeout(function() {
-    let chartId = document.getElementById("chart-container");
-    if (!chartId) {
-        console.log('noId');
-        let chartArea = document.getElementsByClassName("chart-area");
-        for(var i = 0; i < chartArea.length; i++) {
-            chartArea[i].style.display = "none";
-        } 
-        // insert chart screenshot here
-        document.getElementById("chart-fallback").innerHTML += '<img src="https://fm-static.cnbc.com/awsmedia/chart/2019/10/08/chart-error_wide.1570569331252.png" style="width: 100%;max-width:660px">';
-    } else {
-        console.log('yesId')
-    }
-}, 1500);
+document.addEventListener('DOMContentLoaded', function () {
 
-document.addEventListener('DOMContentLoaded', setTimeout(function () {
+    setTimeout(function(){
 
     let chartId = document.getElementById("chart-container");
 
@@ -59,7 +45,7 @@ document.addEventListener('DOMContentLoaded', setTimeout(function () {
 
         Highcharts.chart(chartId, {
             chart: {
-                type: 'bar',
+                type: 'line',
                 styledMode: true,
                 spacingBottom: 25,
                 spacingRight: 100
@@ -68,37 +54,28 @@ document.addEventListener('DOMContentLoaded', setTimeout(function () {
                 text: null
             },
             data: {
-                googleSpreadsheetKey: '1YOKb5l2VM4aAB2r20N_1aT_1vEajYrP3U-U3A6lZbC0'
-            },
-            // for bar charts only
-            plotOptions: {
-                series: {
-                    groupPadding: 0.1
-                } 
+                googleSpreadsheetKey: '1HMRyj3Xg0PeEqyMCSpcd-gJmMvILgUorWp6Pn8-10aU',
+                endColumn: 1
             },
             // for line charts only
-            // plotOptions: {
-            //     series: {
-            //         lineWidth: 1,
-            //         // clip: false,
-            //         marker: {
-            //             enabled: false,
-            //             symbol: 'circle',
-            //             fillColor: '#ffffff',
-            //             states: {
-            //                 hover: {
-            //                     fillColor: '#ffffff'
-            //                 }
-            //             }
-            //         }
-            //     }
-            // },
+            plotOptions: {
+                series: {
+                    lineWidth: 1,
+                    // clip: false,
+                    marker: {
+                        enabled: false,
+                        symbol: 'circle',
+                        fillColor: '#ffffff',
+                        states: {
+                            hover: {
+                                fillColor: '#ffffff'
+                            }
+                        }
+                    }
+                }
+            },
             legend: {
-                align: 'right',
-                symbolRadius: 0,
-                verticalAlign: 'top',
-                x: 10,
-                itemMarginTop: -10
+                enabled: false
             },
             xAxis: {
                 labels: {
@@ -120,8 +97,48 @@ document.addEventListener('DOMContentLoaded', setTimeout(function () {
             },
             tooltip: {
                 shadow: false,
-                padding: 10
+                padding: 10,
+                valueDecimals: 2,
             },
+            annotations: [{
+                shapes: [{
+                    point: {
+                        x: 1516994669000, // timestamp
+                        y: 2872.86783924313, // value
+                        xAxis: 0, // yAxis INDEX
+                        yAxis: 0 // xAxis INDEX
+                      },
+                    type: 'circle',
+                    r: 5
+                }, {
+                    point: {
+                        x: 1537385069000, // timestamp
+                        y: 2930.74615209949, // value
+                        xAxis: 0, // yAxis INDEX
+                        yAxis: 0 // xAxis INDEX
+                      },
+                    type: 'circle',
+                    r: 5
+                }, {
+                    point: {
+                        x: 1556652269000, // timestamp
+                        y: 2945.83088684581, // value
+                        xAxis: 0, // yAxis INDEX
+                        yAxis: 0 // xAxis INDEX
+                      },
+                    type: 'circle',
+                    r: 5
+                }, {
+                    point: {
+                        x: 1564169069000, // timestamp
+                        y: 3025.85914811883, // value
+                        xAxis: 0, // yAxis INDEX
+                        yAxis: 0 // xAxis INDEX
+                      },
+                    type: 'circle',
+                    r: 5
+                }],
+            }],
             responsive: {
                 rules: [{
                 condition: {
@@ -142,4 +159,5 @@ document.addEventListener('DOMContentLoaded', setTimeout(function () {
                 }]
             }
         });
-    }, 1000));
+    },1000);
+    });

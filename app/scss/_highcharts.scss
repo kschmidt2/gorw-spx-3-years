@@ -50,9 +50,8 @@
   
   .highcharts-tracker-line {
     stroke-linejoin: round;
-    stroke: $slate-secondary-5;
-    stroke-width: 1.5;
-    stroke-dasharray: 4;
+    // stroke: $slate-secondary-5;
+    stroke-width: 3;
     fill: none;
   }
   
@@ -84,11 +83,6 @@
   .highcharts-yaxis-labels {
     fill: $slate-secondary-5;
     // use this to change the axis label
-    & span:first-child {
-      &:after {
-        content: "%";
-    }
-    }
   }
   
   .highcharts-grid-line {
