@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
             chartArea[i].style.display = "none";
         } 
         // insert chart screenshot here
-        document.getElementById("chart-fallback").innerHTML += '<img src="https://fm-static.cnbc.com/awsmedia/chart/2019/10/08/chart-error_wide.1570569331252.png" style="width: 100%;max-width:660px">';
+        document.getElementById("chart-fallback").innerHTML += '<img src="https://fm-static.cnbc.com/awsmedia/chart/2019/10/28/sp500-three-year-chart.1572292140075.png" style="width: 100%;max-width:660px">';
     } else {
         console.log('yesId')
     }
